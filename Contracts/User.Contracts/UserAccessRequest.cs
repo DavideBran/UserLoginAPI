@@ -1,7 +1,7 @@
-public record UserRegistrationRequest(
+public record UserAccessRequest(
     string Name,
     string Surname, 
     string NickName, 
     string Email,
-    int NuancePasswordCodified
+    string NuanceCodifiedPassword
 );

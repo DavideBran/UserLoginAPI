@@ -1,10 +1,8 @@
-UserLoginAPI/User.Contracts/obj 
-UserLoginAPI/User.Contracts/bin 
-UserLoginAPI/Program.Contracts/bin 
-UserLoginAPI/Program.Contracts/obj 
+Contracts/User.Contracts/obj 
+Contracts/User.Contracts/bin 
+Contracts/Program.Contracts/bin 
+Contracts/Program.Contracts/obj 
 UserLoginAPI/obj 
 UserLoginAPI/bin 
-UserLoginAPI/bin/Debug 
-UserLoginAPI/bin/Debug/net7.0 
-UserLoginAPI/Admin.Contracts/obj
-UserLoginAPI/Admin.Contracts/bin
+Contracts/Admin.Contracts/obj
+Contracts/Admin.Contracts/bin

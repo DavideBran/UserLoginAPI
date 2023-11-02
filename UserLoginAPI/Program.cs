@@ -4,6 +4,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddSingleton<UserManager>();
+
 var app = builder.Build();
 
 app.UseHttpsRedirection();

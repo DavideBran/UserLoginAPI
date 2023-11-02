@@ -7,11 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserLoginAPI", "UserLoginAP
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserLoginAPI", "UserLoginAPI", "{6AA65351-3ED0-42C5-A006-4318E1165319}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Contracts", "UserLoginAPI\User.Contracts\User.Contracts.csproj", "{DB248C7A-FBD1-4255-83DA-FB4CA42DBA06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Contracts", "Contracts\User.Contracts\User.Contracts.csproj", "{DB248C7A-FBD1-4255-83DA-FB4CA42DBA06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin.Contracts", "UserLoginAPI\Admin.Contracts\Admin.Contracts.csproj", "{C6CA3F05-EBDB-4DFF-B557-FD7D2CCE1DD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin.Contracts", "Contracts\Admin.Contracts\Admin.Contracts.csproj", "{C6CA3F05-EBDB-4DFF-B557-FD7D2CCE1DD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program.Contracts", "UserLoginAPI\Program.Contracts\Program.Contracts.csproj", "{CD1FA74F-5406-4F6C-824B-36767F4AC94F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program.Contracts", "Contracts\Program.Contracts\Program.Contracts.csproj", "{CD1FA74F-5406-4F6C-824B-36767F4AC94F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -15,11 +15,11 @@
 - ## Register New User
 
   ```js
-      GET registration
+      GET User/Registration
 
   --------------------------------------
 
-      POST registration
+      POST User/Registration
 
       body:
           `{
@@ -34,7 +34,7 @@
   - ### Registration Response
 
     ```js
-        GET registration
+        GET User/Registration
 
             {
                 "Nuance": 13
@@ -43,20 +43,37 @@
         POST registration
 
         201 Created
+        
+        or
+        
+         400 BadRequest
     ```
 
 - ## Get User by Email
 
   ```js
-      GET login/{{email}}
+      GET User/Login/{{email}}
   ```
 
+  ```js
+      GET User/{{email}}
+  ```
   - ### User Response
 
     ```json
+        (login)
+        
         {
             "Nuance": 12
         }
+
+        or 
+
+        404 NotFound
+
+        (get)
+
+        200 Ok
 
         or
 
@@ -66,10 +83,11 @@
 - ## Login
 
   ```js
-      POST login
+      POST User/Login
 
       body: 
            `{
+                "Email" : "Email@email.com"
                 "NuanceCodifiedPassword": "xxxxxxx"
             }`
   ```
@@ -91,7 +109,7 @@
 - ## Remove User
 
   ```js
-      DELETE Admin/remove/{{id}}
+      DELETE Admin/Remove/{{id}}
   ```
 
   - ### Remove Response
@@ -103,7 +121,7 @@
 - ## Get All User
 
   ```js
-      GET Admin/getAll
+      GET Admin
   ```
 
   - ### Response
