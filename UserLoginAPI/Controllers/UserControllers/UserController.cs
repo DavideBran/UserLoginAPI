@@ -12,15 +12,8 @@ public class UserController : ControllerBase
         _APImanager = userManager;
     }
 
-    [HttpGet("Registration")]
-    public ActionResult<UserNuanceResponse> RegistrationNaunce()
-    {
-        int Nuance = _APImanager.GenerateNuance();
-        return new UserNuanceResponse(Nuance);
-    }
-
-    [HttpPost("Registration/send")]
-    public IActionResult Registration(UserAccessRequest userToRegister)
+    [HttpPost("Registration")]
+    public ActionResult<UserRegistrationResponse> Registration(UserRegistrationRequest userToRegister)
     {
         User newUser = new User(
             userToRegister.Name,
@@ -30,9 +23,9 @@ public class UserController : ControllerBase
         );
 
 
-        if (_APImanager.InsertNewUser(newUser, userToRegister.NuanceCodifiedPassword))
+        if (_APImanager.InsertNewUser(newUser, userToRegister.HashedPassword))
         {
-            return Created($"/{newUser.Email}", null);
+            return new UserRegistrationResponse(_APImanager.GenerateToken(newUser));
         }
 
         return BadRequest();
@@ -53,16 +46,17 @@ public class UserController : ControllerBase
     }
 
     [HttpPost("Login")]
-    public ActionResult<UserLoginResponse> UserLogin(UserAccessRequest user)
+    public ActionResult<UserLoginResponse> UserLogin(UserLoginRequest user)
     {
-        User userToValidate = new User(
-            user.Name,
-            user.Surname,
-            user.Email,
-            user.NickName
-        );
-
-        UserLoginResponse? validationToken = new(_APImanager.validate(userToValidate, user.NuanceCodifiedPassword));
-        return validationToken == null ? NotFound() : validationToken;
+        string userEmail = user.Email;
+        User validateUser = _APImanager.Validate(userEmail, user.NuanceCodifiedPassword);
+        if (validateUser == null) return NotFound();
+        return new UserLoginResponse(
+             validateUser.Name,
+             validateUser.Surname,
+             validateUser.Email,
+             validateUser.NickName,
+             _APImanager.GenerateToken(validateUser)
+         );
     }
 }

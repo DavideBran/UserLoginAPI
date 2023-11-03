@@ -3,9 +3,7 @@ public class UserManager
     private Random _nuanceGenerator;
     private int _lastNuance;
 
-
-    // key: User Email // Value: User Token (if exist)
-    private Dictionary<string, string> _usersWithToken;
+    private List<string> _tokens;
 
     // key: User Email // Value: User Password (with the corrispective nuance)
     private Dictionary<string, string> _usersWithPassword;
@@ -13,7 +11,7 @@ public class UserManager
     public UserManager()
     {
         _nuanceGenerator = new Random();
-        _usersWithToken = new();
+        _tokens = new();
         _usersWithPassword = new();
     }
 
@@ -38,8 +36,10 @@ public class UserManager
         return _lastNuance;
     }
 
-    public string validate(User userToValidate, string passwordToValidate)
+    public User Validate(string userEmail, string passwordToValidate)
     {
-        return "";
+        return new User("test", "test", "testEmail", "testNIck");
     }
+
+    public string GenerateToken(User user) { return "testToken"; }
 }

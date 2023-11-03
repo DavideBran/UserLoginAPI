@@ -15,10 +15,6 @@
 - ## Register New User
 
   ```js
-      GET User/Registration
-
-  --------------------------------------
-
       POST User/Registration
 
       body:
@@ -27,18 +23,13 @@
               Surname: "Surname",
               NickName: "NickName",
               Email: "Email",
-              NuanceCodifiedPassword: "xxxxxxxx"
+              HashedPassword: "xxxxxxxx"
           }`
   ```
 
   - ### Registration Response
 
     ```js
-        GET User/Registration
-
-            {
-                "Nuance": 13
-            }
 
         POST registration
 
@@ -96,6 +87,10 @@
 
     ```json
         {
+            "Name" : "name"
+            "Surname" : "surname"
+            "Email" : "email" 
+            "NickName" : "nickName"
             "ValidationToken": "xxxxx"
         }
 

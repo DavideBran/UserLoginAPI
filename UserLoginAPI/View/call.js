@@ -30,23 +30,19 @@ UserService = class {
     }
 
     async register(user, password) {
-        const response = await fetch(`${this.baseUrl}User/Registration`);
-        const nuanceJson = await response.json();
-        const nuance = await nuanceJson.nuance;
-        const userNuancedPassword = `${password}${nuance}`;
 
-        let hashedPassword = this.#passwordHash(userNuancedPassword);
+        const hashedPassword = this.#passwordHash(password);
 
         const userWithPassword = {
             "Name": user.Name,
             "Surname": user.Surname,
             "NickName": user.NickName,
             "Email": user.Email,
-            "NuanceCodifiedPassword": hashedPassword
+            "HashedPassword": hashedPassword
         }
 
         const register = await fetch(
-            `${this.baseUrl}User/Registration/send`,
+            `${this.baseUrl}User/Registration`,
             {
                 method: "POST",
                 body: JSON.stringify(userWithPassword),
@@ -56,7 +52,9 @@ UserService = class {
             }
         )
         if (!register.ok) { throw new BadRequestException("BadRequest"); }
-        else console.log(register.status + " User Registreted");
+        const userTokenJSON = await register.json();
+        const token = await userTokenJSON.validationToken;
+        console.log("User Token: " + token);
     }
 
     constructor(url) {
